@@ -1,11 +1,11 @@
 package com.example.weatherappcomposey.screens
 
-import android.graphics.fonts.FontStyle
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
+import androidx.compose.material.Icon
+import androidx.compose.material.IconButton
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -48,23 +48,81 @@ fun MainScreen() {
                 modifier = Modifier.fillMaxWidth(),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                Row (
+                Column(
                     modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceBetween,
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceBetween,
 
-                ){
+                        ) {
+                        Text(
+                            modifier = Modifier.padding(start = 8.dp, top = 8.dp),
+                            text = "13 July 2023 17:07",
+                            style = TextStyle(fontSize = 15.sp),
+                            color = Color.White
+                        )
+                        AsyncImage(
+                            model = "https://cdn.weatherapi.com/weather/64x64/day/353.png",
+                            contentDescription = "im2",
+                            modifier = Modifier
+                                .padding(
+                                    top = 3.dp,
+                                    end = 8.dp
+                                )
+                                .size(35.dp)
+                        )
+                    }
                     Text(
-                        modifier = Modifier.padding(start = 8.dp, top = 8.dp),
-                        text = "13 July 2023 17:07",
-                        style = TextStyle(fontSize = 15.sp),
+                        text = "Moscow",
+                        style = TextStyle(fontSize = 24.sp),
                         color = Color.White
                     )
-                    AsyncImage(
-                        model = "https://cdn.weatherapi.com/weather/64x64/day/353.png",
-                        contentDescription = "im2",
-                        modifier = Modifier.size(35.dp)
-                            .padding(top = 3.dp, end = 8.dp)
+                    Text(
+                        text = "13 C",
+                        style = TextStyle(fontSize = 65.sp),
+                        color = Color.White
                     )
+                    Text(
+                        text = "Cloudy",
+                        style = TextStyle(fontSize = 16.sp),
+                        color = Color.White
+                    )
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceBetween
+                    ) {
+                        IconButton(
+                            onClick = {
+
+                            }
+                        ) {
+                            Icon(
+                                painter = painterResource(id = R.drawable.ic_baseline_search_24),
+                                contentDescription = "im3",
+                                tint = Color.White
+                            )
+                        }
+                        Text(
+                            modifier = Modifier.padding(top = 8.dp),
+                            text = "24 C/9 C",
+                            style = TextStyle(fontSize = 16.sp),
+                            color = Color.White
+                        )
+                        IconButton(
+                            onClick = {
+
+                            }
+                        ) {
+                            Icon(
+                                painter = painterResource(id = R.drawable.ic_baseline_cloud_sync_24),
+                                contentDescription = "im4",
+                                tint = Color.White
+                            )
+                        }
+                    }
+
                 }
             }
 
