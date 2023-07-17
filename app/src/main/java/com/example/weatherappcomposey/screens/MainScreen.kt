@@ -3,6 +3,7 @@ package com.example.weatherappcomposey.screens
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
@@ -20,6 +21,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.example.weatherappcomposey.R
+import com.example.weatherappcomposey.data.WeatherModel
 import com.example.weatherappcomposey.ui.theme.blueLight
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
@@ -170,12 +172,35 @@ fun TabLayout(){
             state = pagerState,
             modifier = Modifier.weight(1.0f)
         ){
-            index ->
+                index ->
             LazyColumn(
                 modifier = Modifier.fillMaxSize()
             ){
-                items(15){
-                    ListItem()
+                itemsIndexed(
+                    listOf(
+                        WeatherModel(
+                            "London",
+                            "12:34",
+                            "19",
+                            "Cloudy",
+                            "//cdn.weatherapi.com/weather/64x64/day/353.png",
+                            "",
+                            "",
+                            ""
+                        ),
+                        WeatherModel(
+                            "London",
+                            "17/07/2022",
+                            "",
+                            "Cloudy",
+                            "//cdn.weatherapi.com/weather/64x64/day/353.png",
+                            "26",
+                            "12",
+                            "sdfhg"
+                        )
+                    )
+                ){
+                        _, item -> ListItem(item)
                 }
             }
         }
